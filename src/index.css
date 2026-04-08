@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 221 83% 53%;
+
+    /* Priority colors */
+    --priority-urgent: 0 84% 60%;
+    --priority-high: 25 95% 53%;
+    --priority-medium: 48 96% 53%;
+    --priority-low: 217 91% 60%;
+    --priority-none: 220 9% 46%;
+
+    /* Status colors */
+    --status-todo: 220 9% 46%;
+    --status-in-progress: 239 84% 67%;
+    --status-in-review: 38 92% 50%;
+    --status-done: 160 84% 39%;
+
+    /* Fonts */
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+/* FullCalendar light theme overrides */
+.fc {
+  --fc-border-color: hsl(214 32% 91%);
+  --fc-page-bg-color: hsl(0 0% 100%);
+  --fc-neutral-bg-color: hsl(210 40% 98%);
+  --fc-today-bg-color: hsl(221 83% 53% / 0.08);
+  --fc-now-indicator-color: hsl(0 84% 60%);
+  --fc-event-border-color: transparent;
+  --fc-list-event-hover-bg-color: hsl(210 40% 96%);
+  --fc-non-business-color: hsl(210 40% 96%);
+  font-family: var(--font-sans) !important;
+}
+
+.fc .fc-col-header-cell {
+  @apply text-muted-foreground font-medium text-xs uppercase tracking-wider;
+  background: hsl(var(--card));
+  padding: 10px 0;
+}
+
+.fc .fc-daygrid-day-number,
+.fc .fc-col-header-cell-cushion {
+  @apply text-muted-foreground;
+  text-decoration: none !important;
+}
+
+.fc .fc-day-today .fc-daygrid-day-number {
+  @apply text-primary font-semibold;
+}
+
+.fc .fc-timegrid-slot-label-cushion {
+  @apply text-muted-foreground text-xs;
+  font-family: var(--font-mono);
+}
+
+.fc .fc-scrollgrid {
+  border: none !important;
+}
+
+.fc .fc-scrollgrid td,
+.fc .fc-scrollgrid th {
+  border-color: hsl(214 32% 91%);
+}
+
+.fc .fc-timegrid-slot {
+  height: 48px;
+}
+
+.fc .fc-event {
+  border-radius: 6px;
+  border: none;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.fc .fc-event:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 12px hsl(239 84% 67% / 0.2);
+}
+
+.fc .fc-daygrid-event-dot {
+  display: none;
+}
+
+.fc .fc-list-event td {
+  @apply text-foreground;
+  border-color: hsl(214 32% 91%);
+}
+
+.fc .fc-list-day-cushion {
+  background: hsl(var(--card)) !important;
+  @apply text-foreground;
+}
+
+.fc .fc-button {
+  display: none;
+}
+
+.fc .fc-toolbar {
+  display: none;
+}
+
+/* Drag ghost styling */
+.fc-event-dragging {
+  opacity: 0.7 !important;
+}
+
+/* Business hours */
+.fc .fc-timegrid-col.fc-day-today {
+  background: hsl(239 84% 67% / 0.03);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(214 32% 91%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(214 32% 85%);
+}
